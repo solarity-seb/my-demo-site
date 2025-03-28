@@ -1,59 +1,33 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
-</script>
-
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+	import Hero from '$lib/components/Hero.svelte';
+	import TwoColumnSection from '$lib/components/TwoColumnSection.svelte';
+  </script>
+  
+  <Hero
+  backgroundImage="/images/svelte-welcome.webp"
+  textAlignment="center"
+  subheadingAboveHeading="Your Tagline Here"
+  heading="Welcome to the Institute"
+  subheading="We’re redefining research for the Anthropocene"
+  button1Text="Learn More"
+  button1Link="/about"
+  button2Text="Get Involved"
+  button2Link="/contact"
+/>
+  
+  <TwoColumnSection
+	heading="Grow food without chemicals"
+	text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
+	imageUrl="/images/garden-bed.jpg"
+	imageAlt="Lush garden bed full of vegetables"
+	reverse={false}
+  />
+  
+  <TwoColumnSection
+	heading="Start your food forest"
+	text="Perennial systems create abundance with less work over time. Fruit trees, berry bushes, and cover crops all work together."
+	imageUrl="/images/food-forest.jpg"
+	imageAlt="Young food forest"
+	reverse={true}
+  />
+  
