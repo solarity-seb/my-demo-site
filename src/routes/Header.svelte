@@ -19,9 +19,7 @@
   
   <nav class="navbar">
 	<div class="nav-inner">
-	  <a href="/" class="logo">
-		<img src="/logo.png" alt="Site Logo" height="40" width="40" />
-	  </a>
+	  
   
 	  <button class="hamburger" on:click={() => (menuOpen = !menuOpen)} aria-label="Menu">
 		<div class:open={menuOpen}></div>
