@@ -6,10 +6,7 @@
 	<!-- Slide Menu -->
 	<div class="slide-menu u-hide-mobile">
 	  <div class="png_text-site-branding">
-		<a href="/" class="site-branding-link">
-		  <!-- <img src="/images/logo.svg" alt="Site Name" /> -->
-		  <span class="site-branding-text">My Site</span>
-		</a>
+		
 	  </div>
 	  <a class="btn btn-outline nav-cta" href="/contact">
 		Contact Us
@@ -22,7 +19,7 @@
 	  <div class="site-branding">
 		<div class="png_text-site-branding">
 		  <a href="/" class="site-branding-link">
-			<!-- <img src="/images/logo.svg" alt="Site Name" /> -->
+
 			<span class="site-branding-text">My Site</span>
 		  </a>
 		</div>
