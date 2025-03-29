@@ -18,7 +18,7 @@
   <TwoColumnSection
 	heading="Grow food without chemicals"
 	text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
-	imageUrl="/images/garden-bed.jpg"
+	imageUrl="/images/svelte-welcome.webp"
 	imageAlt="Lush garden bed full of vegetables"
 	reverse={false}
   />
@@ -26,7 +26,7 @@
   <TwoColumnSection
 	heading="Start your food forest"
 	text="Perennial systems create abundance with less work over time. Fruit trees, berry bushes, and cover crops all work together."
-	imageUrl="/images/food-forest.jpg"
+	imageUrl="/images/svelte-welcome.webp"
 	imageAlt="Young food forest"
 	reverse={true}
   />
