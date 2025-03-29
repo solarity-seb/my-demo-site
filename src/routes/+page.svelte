@@ -10,9 +10,9 @@
   heading="Welcome to the Institute"
   subheading="We’re redefining research for the Anthropocene"
   button1Text="Learn More"
-  button1Link="/about"
+  button1Link=""
   button2Text="Get Involved"
-  button2Link="/contact"
+  button2Link=""
 />
   
   <TwoColumnSection
