@@ -8,6 +8,7 @@
     export let button1Link = '';
     export let button2Text = '';
     export let button2Link = '';
+    export let textColor = ''; // 'light' or 'dark'
   </script>
   
   <section id="hero-section" class="full-page-image bg1">
@@ -23,11 +24,11 @@
         {/if}
   
         {#if heading}
-          <h1>{heading}</h1>
+          <h1 class={`text-${textColor}`}>{heading}</h1>
         {/if}
   
         {#if subheading}
-          <p>{subheading}</p>
+          <p class={`text-${textColor}`}>{subheading}</p>
         {/if}
   
         {#if button1Link && button1Text}
@@ -61,7 +62,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: end;
+      align-items: center;
       height: 100%;
       position: relative;
       text-align: center;
@@ -88,10 +89,6 @@
       overflow: hidden;
       padding: 0;
       max-height: 1080px;
-    }
-  
-    #hero-section h1 {
-      color: var(--dark);
     }
   
     .image-background {

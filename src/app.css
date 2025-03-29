@@ -1,4 +1,4 @@
-
+@import url($lib/styles/barebones.css);
 
 /*!
 Theme Name: Seb Jagoe Custom Theme Boilerplate
@@ -184,7 +184,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	.u-text-color {
 		color: var(--text-color);
 	}
-	
+	.text-light {
+		color: var(--light);
+	  }
+	  
+	  .text-dark {
+		color: var(--dark);
+	  }	  
 	.u-text-grey {
 		color: var(--grey);
 	}

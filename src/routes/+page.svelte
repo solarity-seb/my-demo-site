@@ -13,6 +13,7 @@
   button1Link=""
   button2Text="Get Involved"
   button2Link=""
+  textColor="light"
 />
   
   <TwoColumnSection
