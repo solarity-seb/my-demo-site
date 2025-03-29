@@ -9,6 +9,9 @@
     export let button2Text = '';
     export let button2Link = '';
     export let textColor = ''; // 'light' or 'dark'
+
+
+    import { parallax } from '$lib/actions/parallax.js';
   </script>
   
   <section id="hero-section" class="full-page-image bg1">
@@ -18,13 +21,19 @@
     </div>
   
     <div class={`grid-container full hero-grid ${textAlignment}`}>
-      <div class="hero-text-container bottom parallax" data-y="-240" data-start="top 80%" data-end="top -40%">
+      <div
+      class="hero-text-container bottom"
+      use:parallax={{
+        y: -140,
+        start: 'top 80%',
+        end: 'top -40%'
+      }}>
         {#if subheadingAboveHeading}
           <p class="u-text-sm u-text-accent">{subheadingAboveHeading}</p>
         {/if}
   
         {#if heading}
-          <h1 class={`text-${textColor}`}>{heading}</h1>
+          <h1 class={`text-${textColor} box`}>{heading}</h1>
         {/if}
   
         {#if subheading}
