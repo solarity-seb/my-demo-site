@@ -13,7 +13,7 @@
   <section id="hero-section" class="full-page-image bg1">
     <!-- Background Image -->
     <div class="image-background">
-
+      <img src={backgroundImage} alt="" aria-hidden="true" />
     </div>
   
     <div class={`grid-container full hero-grid ${textAlignment}`}>
@@ -23,7 +23,6 @@
         {/if}
   
         {#if heading}
-        <img src='images/svelte-welcome.webp' alt="Background image" />
           <h1>{heading}</h1>
         {/if}
   
@@ -92,7 +91,7 @@
     }
   
     #hero-section h1 {
-      color: var(--light);
+      color: var(--dark);
     }
   
     .image-background {
@@ -100,7 +99,7 @@
       inset: 0;
       overflow: hidden;
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
     }
   
     .image-background img {

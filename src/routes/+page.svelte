@@ -4,7 +4,7 @@
   </script>
   
   <Hero
-  backgroundImage="/images/svelte-welcome.webp"
+  backgroundImage="/images/bg.jpg"
   textAlignment="center"
   subheadingAboveHeading="Your Tagline Here"
   heading="Welcome to the Institute"
