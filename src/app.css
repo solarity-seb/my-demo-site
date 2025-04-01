@@ -85,7 +85,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 		/* Barebones Grid */
 		--grid-width: 80%;
-		--grid-width-mobile: 96%;
+		--grid-width-mobile: 90%;
 		--grid-max-width: 1200px;
 		--header-nav-max-width: 1800px;
 

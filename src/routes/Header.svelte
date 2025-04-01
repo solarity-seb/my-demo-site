@@ -84,39 +84,40 @@ $: mobileNavLinks = navLinks.filter(
 <div class:menu-open={menuOpen}>
 	<nav class="navbar">
 	<div class="nav-inner">
-		<SiteLogo width={220} className="logo"/>
+		<div class="nav-left">
+			<SiteLogo width={220} className="logo"/>
+		</div>
 
 		<!-- Desktop Nav -->
-<ul class="nav-links">
-	{#each mainNavLinks as link}
-		<li>
-			<a 
-				href={link.href} 
-				class:active={$currentPath === link.href}
-			>
-				{link.name}
-			</a>
-		</li>
-	{/each}
-</ul>
+		<div class="nav-center">
+			<ul class="nav-links">
+				{#each mainNavLinks as link}
+					<li>
+						<a href={link.href} class:active={$currentPath === link.href}>
+							{link.name}
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</div>
 
-
-		
-
-		<button
+		<div class="nav-right">
+			<button
 			class="hamburger"
 			on:click={() => (menuOpen = !menuOpen)}
 			aria-label="Toggle menu"
 			aria-expanded={menuOpen}
 			aria-controls="mobile-menu"
-		>
-		<div class="hamburger-icon" class:open={menuOpen}>
-			<span></span>
-			<span></span>
-			<span></span>
+			>
+			<div class="hamburger-icon" class:open={menuOpen}>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			</button>
 		</div>
+
 		
-		</button>
 	</div>
 
 	{#if menuOpen}
@@ -190,12 +191,33 @@ $: mobileNavLinks = navLinks.filter(
 	}
 
 	.nav-inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	height: 64px;
+}
+
+.nav-left {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.nav-center {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.nav-right {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
 
 	.logo img {
 		display: block;
