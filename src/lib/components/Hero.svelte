@@ -12,6 +12,7 @@
 
 
     import { parallax } from '$lib/actions/parallax.js';
+    import SocialLinks from '$lib/components/SocialLinks.svelte';
   </script>
   
   <section id="hero-section" class="full-page-image bg1">
@@ -65,6 +66,14 @@
       
     </div>
   </section>
+
+
+  <SocialLinks
+		direction="v"
+		fixedPosition = {true}
+		hideOnMobile = {false}
+		width = "30"
+/>
   
   <style>
     .hero-grid {

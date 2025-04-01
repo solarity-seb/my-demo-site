@@ -1,134 +1,371 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { derived } from 'svelte/store';
-  
+	import { onMount, tick } from 'svelte';
+	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import { fade } from 'svelte/transition';
+	import SiteLogo from '$lib/components/SiteLogo.svelte';
+	import { navLinks } from '$lib/data/navLinks.js';
+	import ColorModeToggle from '$lib/components/ColorModeToggle.svelte';
+
+
+
+
+	const location = 'header';
+
+// main nav (desktop)
+const mainLayout = 'main';
+$: mainNavLinks = navLinks.filter(
+	link =>
+		['both', location].includes(link.location) &&
+		['both', mainLayout].includes(link.layout) 
+);
+
+// mobile nav
+const mobileLayout = 'mobile';
+$: mobileNavLinks = navLinks.filter(
+	link =>
+		['both', location].includes(link.location) &&
+		['both', mobileLayout].includes(link.layout)
+);
+
+
 	let menuOpen = false;
-  
-	// Define your nav links here
-	const navLinks = [
-	  { name: 'Home', href: '/' },
-	  { name: 'About', href: '/about' },
-	  { name: 'Blog', href: '/blog' },
-	  { name: 'Contact', href: '/contact' }
-	];
-  
-	// Optional: Get current path to highlight active link
+	let menuRef: HTMLElement;
+
+	;
+
+
 	const currentPath = derived(page, $page => $page.url.pathname);
-  </script>
-  
-  <nav class="navbar">
+
+	let firstFocusable: HTMLElement;
+	let lastFocusable: HTMLElement;
+
+	async function trapFocus() {
+		await tick();
+		const focusables = menuRef?.querySelectorAll<HTMLElement>(
+			'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+		);
+		if (!focusables?.length) return;
+		firstFocusable = focusables[0];
+		lastFocusable = focusables[focusables.length - 1];
+		firstFocusable.focus();
+	}
+
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape') {
+			menuOpen = false;
+		}
+		if (event.key === 'Tab' && menuOpen && firstFocusable && lastFocusable) {
+			if (event.shiftKey && document.activeElement === firstFocusable) {
+				event.preventDefault();
+				lastFocusable.focus();
+			} else if (!event.shiftKey && document.activeElement === lastFocusable) {
+				event.preventDefault();
+				firstFocusable.focus();
+			}
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('keydown', handleKeydown);
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
+
+	$: if (menuOpen) trapFocus();
+
+	$: if (typeof document !== 'undefined') {
+	document.body.classList.toggle('menu-open', menuOpen);
+}
+</script>
+
+<div class:menu-open={menuOpen}>
+	<nav class="navbar">
 	<div class="nav-inner">
-	  
-  
-	  <button class="hamburger" on:click={() => (menuOpen = !menuOpen)} aria-label="Menu">
-		<div class:open={menuOpen}></div>
-	  </button>
-  
-	  <ul class:open={menuOpen}>
-		{#each navLinks as link}
-		  <li>
-			<a href={link.href} class:active={$currentPath === link.href}>
-			  {link.name}
+		<SiteLogo width={220} className="logo"/>
+
+		<!-- Desktop Nav -->
+<ul class="nav-links">
+	{#each mainNavLinks as link}
+		<li>
+			<a 
+				href={link.href} 
+				class:active={$currentPath === link.href}
+			>
+				{link.name}
 			</a>
-		  </li>
-		{/each}
-	  </ul>
+		</li>
+	{/each}
+</ul>
+
+
+		
+
+		<button
+			class="hamburger"
+			on:click={() => (menuOpen = !menuOpen)}
+			aria-label="Toggle menu"
+			aria-expanded={menuOpen}
+			aria-controls="mobile-menu"
+		>
+		<div class="hamburger-icon" class:open={menuOpen}>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		</button>
 	</div>
-  </nav>
-  
-  <style>
+
+	{#if menuOpen}
+	<!-- Backdrop -->
+	<div class="menu-backdrop" on:click={() => (menuOpen = false)} transition:fade></div>
+{/if}
+
+
+	<!-- Mobile menu -->
+	<div
+		id="mobile-menu"
+		class="mobile-menu"
+		class:open={menuOpen}
+		bind:this={menuRef}
+		role="dialog"
+		aria-modal="true"
+	>
+	
+		<div class="mobile-menu-content" on:click|stopPropagation>
+			<div inert>
+				<SiteLogo width={220} className="logo" />
+			</div>
+			
+			<!-- Mobile Nav -->
+<ul>
+	{#each mobileNavLinks as link}
+	<li>
+		<a 
+			href={link.href} 
+			tabindex="0"
+			class:active={$currentPath === link.href}
+		>
+			{link.name}
+		</a>
+	</li>
+{/each}
+</ul>
+
+			
+<div class="socials-dark-mode">
+
+	<SocialLinks
+		direction="h"
+		fixedPosition = {false}
+		hideOnMobile = {false}
+		width = "24"
+/>
+
+<ColorModeToggle />
+</div>
+		
+		</div>
+		
+
+	</div>
+</nav>
+</div>
+
+
+<style>
+	:global(body) {
+		overflow-x: hidden;
+	}
+
 	.navbar {
-	  background: var(--bg);
-	  padding: 1rem;
-	  border-bottom: 1px solid #eee;
+		background: var(--bg);
+		padding: 1rem;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		z-index: 1000;
 	}
-  
+
 	.nav-inner {
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
-	  max-width: 1200px;
-	  margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1200px;
+		margin: 0 auto;
 	}
-  
+
 	.logo img {
-	  height: 40px;
-	  width: auto;
+		display: block;
+		height: auto;
 	}
-  
-	ul {
-	  display: flex;
-	  gap: 1rem;
-	  list-style: none;
+
+	.nav-links {
+		display: flex;
+		gap: 1.5rem;
+		list-style: none;
+		margin-bottom: 0;
 	}
-  
-	a {
-	  text-decoration: none;
-	  color: var(--text);
-	  font-weight: 500;
+
+	.nav-links a {
+		text-decoration: none;
+		color: var(--text);
+		font-weight: 500;
 	}
-  
+
 	a.active {
-	  border-bottom: 2px solid var(--accent);
+		border-bottom: 2px solid var(--accent);
 	}
-  
-	.hamburger {
-	  display: none;
-	  flex-direction: column;
-	  gap: 4px;
-	  cursor: pointer;
-	  border: none;
-	  background: none;
+
+	
+	/* Backdrop */
+	.menu-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	z-index: 999;
+	/* backdrop-filter: blur(99px); */
+}
+
+:global(body.menu-open) .menu-backdrop {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+
+
+	/* Slide-in menu */
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 80%;
+		max-width: 100vw;
+		height: 100vh;
+		background: var(--bg);
+		transition: right 0.8s var(--cubic);
+		box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+		z-index: 1000;
 	}
-  
-	.hamburger div,
-	.hamburger div::before,
-	.hamburger div::after {
-	  content: '';
-	  width: 25px;
-	  height: 3px;
-	  background-color: var(--text);
-	  transition: 0.3s ease;
-	  position: relative;
+
+	.mobile-menu.open {
+		right: 0;
 	}
-  
-	.hamburger div.open {
-	  transform: rotate(45deg);
+	
+	.mobile-menu-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	padding: 2rem;
+}
+
+
+.mobile-menu-nav {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin: 0;
+}
+
+.mobile-menu a {
+	text-decoration: none;
+	color: var(--text);
+	font-weight: 500;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+/* Position social links at the bottom */
+.mobile-social {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+	.mobile-menu ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
 	}
-  
-	.hamburger div.open::before {
-	  transform: rotate(90deg);
-	  top: 0;
+
+	.mobile-menu a {
+		text-decoration: none;
+		color: var(--text);
+		font-weight: 500;
+		font-size: 1.2rem;
 	}
-  
-	.hamburger div.open::after {
-	  opacity: 0;
-	}
-  
-	ul.open {
-	  display: flex;
-	  flex-direction: column;
-	  position: absolute;
-	  top: 100%;
-	  left: 0;
-	  right: 0;
-	  background: var(--bg);
-	  padding: 1rem;
-	}
-  
+
 	@media (max-width: 768px) {
-	  ul {
-		display: none;
-	  }
-  
-	  .hamburger {
-		display: flex;
-	  }
-  
-	  ul.open {
-		display: flex;
-	  }
+		.nav-links {
+			display: none;
+		}
+		.hamburger {
+			display: block;
+		}
 	}
-  </style>
-  
+
+	.hamburger {
+	display: block;
+	position: relative;
+	z-index: 1001; /* higher than mobile menu */
+	background: none;
+	border: none;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+
+	.hamburger-icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 24px;
+	height: 18px;
+	position: relative;
+	transition: transform 0.3s ease;
+}
+
+.hamburger-icon span {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: var(--text-color);
+	border-radius: 2px;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Animation to X */
+.hamburger-icon.open span:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+.socials-dark-mode {
+	display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+</style>
