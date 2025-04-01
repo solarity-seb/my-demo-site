@@ -185,7 +185,6 @@ $: mobileNavLinks = navLinks.filter(
 	.navbar {
 		background: var(--bg);
 		padding: 1rem;
-		border-bottom: 1px solid #eee;
 		position: relative;
 		z-index: 1000;
 	}

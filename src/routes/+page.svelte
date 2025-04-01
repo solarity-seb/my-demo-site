@@ -22,19 +22,7 @@
   lineLink="/"
 />
 
-<CallToAction
-  headline="Ready to start your journey?"
-  text="Let’s build your future, one step at a time."
-  primaryButtonText="Sign Up"
-  primaryButtonLink="/contact"
-  secondaryButtonText="Learn More"
-  secondaryButtonLink="/about"
-  lineText="Maybe later"
-  lineLink="/"
-  bg="bg1"
-  useCard={true}
-  centered={true}
-/>
+
   
   <TwoColumnSection
   eyebrow="Eyebrow"
@@ -59,11 +47,29 @@
 />
 
   
-  <TwoColumnSection
-	heading="Start your food forest"
-	text="Perennial systems create abundance with less work over time. Fruit trees, berry bushes, and cover crops all work together."
-	imageUrl="/images/svelte-welcome.webp"
-	imageAlt="Young food forest"
-	reverse={true}
-  />
+<TwoColumnSection
+heading="Grow Nutrient-Rich Soil"
+eyebrow="Soil Wisdom"
+text="Healthy soil grows healthy food. We believe in no-till, compost, and living systems."
+reverse={false}
+bgClass="bg2"
+primaryText="Contact"
+primaryLink="/contact"
+lineText="About"
+lineLink="/about"
+/>
   
+
+<CallToAction
+  headline="Ready to start your journey?"
+  text="Let’s build your future, one step at a time."
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/contact"
+  secondaryButtonText="Learn More"
+  secondaryButtonLink="/about"
+  lineText="Maybe later"
+  lineLink="/"
+  bg="bg1"
+  useCard={true}
+  centered={true}
+/>

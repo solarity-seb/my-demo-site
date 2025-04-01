@@ -3,21 +3,19 @@
 	<meta name="description" content="Contact" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>Contact</h1>
+<script>
+	import ContactForm from "$lib/components/ContactForm.svelte";
+	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+	import CallToAction from '$lib/sections/CallToAction.svelte';
+	import PageTitle from '$lib/components/PageTitle.svelte';
+	import ContactFormSection from "$lib/sections/ContactFormSection.svelte";
+</script>
 
-	<p>
-		This is a <a href="https://svelte.dev/docs/kit">SvelteKit</a> app. You can make your own by typing
-		the following into your command line and following the prompts:
-	</p>
-
-	<pre>npx sv create</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	
-</div>
+<PageTitle 
+  eyebrow="Contact" 
+  heading="Get in Touch"
+  subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  alignment="left"
+  bg="bg1"
+/>
+<ContactFormSection />

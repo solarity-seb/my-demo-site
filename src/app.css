@@ -87,7 +87,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		--grid-width: 80%;
 		--grid-width-mobile: 90%;
 		--grid-max-width: 1200px;
-		--header-nav-max-width: 1800px;
 
 		/* Buttons */
 		--btn-border-radius: 4px;
@@ -376,7 +375,17 @@ section {
 		padding: var(--section-padding);
 	}
 }
-
+section .container {
+	width: var(--grid-width-mobile);
+	  max-width: var(--grid-max-width);
+	  margin-inline: auto;
+}
+  
+@media (min-width: 900px) {
+	  .section .container {
+		width: var(--grid-width);
+	  }
+	}
 /* Footer */
 footer {
 	position: relative;

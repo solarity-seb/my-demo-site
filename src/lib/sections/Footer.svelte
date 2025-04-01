@@ -61,7 +61,7 @@ const currentPath = derived(page, $page => $page.url.pathname);
 
 	<!-- Bottom Line -->
 	<div class="footer-bottom">
-		<p>&copy; {year} All rights reserved. Built by <a href="https://solarity.studio" target="_blank" rel="noopener">Solarity Studio</a>.</p>
+		<p class="text--xs">&copy; {year} All rights reserved. Built by <a href="https://sebjagoe.com" target="_blank" rel="noopener">Seb</a> at <a href="https://solarity.studio" target="_blank" rel="noopener">Solarity Studio</a>.</p>
 	</div>
 </footer>
 
@@ -69,8 +69,7 @@ const currentPath = derived(page, $page => $page.url.pathname);
 	.site-footer {
 		background: var(--bg);
 		color: var(--text);
-		padding: 3rem 1rem;
-		border-top: 1px solid var(--border);
+		padding: 3rem 1rem 0rem 1rem;
 	}
 
 	.footer-grid {
@@ -138,13 +137,11 @@ const currentPath = derived(page, $page => $page.url.pathname);
 	.footer-bottom {
 		text-align: center;
 		margin-top: 3rem;
-		font-size: 0.9rem;
-		color: var(--muted);
+		opacity: 0.7;
 	}
 
 	.footer-bottom a {
-		color: var(--accent);
-		text-decoration: none;
+		text-decoration: underline;
 	}
 
     .site-footer a.active {
