@@ -11,11 +11,4 @@
 	import ContactFormSection from "$lib/sections/ContactFormSection.svelte";
 </script>
 
-<PageTitle 
-  eyebrow="Contact" 
-  heading="Get in Touch"
-  subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  alignment="left"
-  bg="bg1"
-/>
 <ContactFormSection />

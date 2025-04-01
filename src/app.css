@@ -684,6 +684,15 @@ button {
 	border: var(--btn-border-width) solid var(--text-color);
 	margin: 10px;
 }
+
+.nav-cta {
+	border-radius: var(--btn-border-radius);
+	padding: 8px 2rem;
+	display: inline-block;
+	background-color: var(--bg);
+	color: var(--text-color);
+	border: var(--btn-border-width) solid var(--text-color) !important;
+}
   
   /* Hover: Slightly darken the background and change border color */
   button:hover {
@@ -859,6 +868,7 @@ blockquote figcaption {
 
 
 
+
 .h-line {
 	display: block;
 	height: 4px;
@@ -923,18 +933,6 @@ blockquote figcaption {
 
 
 
-
-
-
-
-
-/* Colored Nav Bar  */
-.colored-bar-container {
-	color: var(--bg);
-	background-color: var(--accent);
-	padding: 0;
-	margin: 0;
-}
 
 
 

@@ -93,9 +93,14 @@ $: mobileNavLinks = navLinks.filter(
 			<ul class="nav-links">
 				{#each mainNavLinks as link}
 					<li>
-						<a href={link.href} class:active={$currentPath === link.href}>
-							{link.name}
-						</a>
+						<a
+	href={link.href}
+	class:active={$currentPath === link.href}
+	class:nav-cta={link.cta}
+>
+	{link.name}
+</a>
+
 					</li>
 				{/each}
 			</ul>
@@ -145,13 +150,15 @@ $: mobileNavLinks = navLinks.filter(
 <ul>
 	{#each mobileNavLinks as link}
 	<li>
-		<a 
-			href={link.href} 
-			tabindex="0"
-			class:active={$currentPath === link.href}
-		>
-			{link.name}
-		</a>
+		<a
+	href={link.href}
+	tabindex="0"
+	class:active={$currentPath === link.href}
+	class:nav-cta={link.cta}
+>
+	{link.name}
+</a>
+
 	</li>
 {/each}
 </ul>
@@ -338,6 +345,17 @@ $: mobileNavLinks = navLinks.filter(
 	border: none;
 	padding: 0.5rem;
 	cursor: pointer;
+}
+.hamburger:focus {
+	box-shadow: none;
+}
+
+.hamburger:hover .hamburger-icon span {
+	background-color: var(--accent);
+	transform: scaleX(1.3);
+}
+.hamburger-icon span {
+	transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 
 
