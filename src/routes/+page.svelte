@@ -1,10 +1,11 @@
 <script>
-	import Hero from '$lib/components/Hero.svelte';
-	import TwoColumnSection from '$lib/components/TwoColumnSection.svelte';
+	import Hero from '$lib/sections/Hero.svelte';
+	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+  import CallToAction from '$lib/sections/CallToAction.svelte';
   </script>
   
   <Hero
-  backgroundImage="/images/bg.jpg"
+  backgroundImage="images/bg.jpg"
   textAlignment="center"
   subheadingAboveHeading="Your Tagline Here"
   heading="Welcome to the Institute"
@@ -14,6 +15,25 @@
   button2Text="Get Involved"
   button2Link=""
   textColor="light"
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/signup"
+  
+  lineText="Maybe later"
+  lineLink="/home"
+/>
+
+<CallToAction
+  headline="Ready to start your journey?"
+  text="Let’s build your future, one step at a time."
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/signup"
+  secondaryButtonText="Learn More"
+  secondaryButtonLink="/about"
+  lineText="Maybe later"
+  lineLink="/home"
+  bg="bg1"
+  useCard={true}
+  centered={true}
 />
   
   <TwoColumnSection

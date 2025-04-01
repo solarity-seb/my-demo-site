@@ -4,21 +4,29 @@
     export let subheadingAboveHeading = '';
     export let heading = '';
     export let subheading = '';
-    export let button1Text = '';
-    export let button1Link = '';
-    export let button2Text = '';
-    export let button2Link = '';
     export let textColor = ''; // 'light' or 'dark'
 
 
     import { parallax } from '$lib/actions/parallax.js';
+    
     import SocialLinks from '$lib/components/SocialLinks.svelte';
+
+    import ButtonGroup from '$lib/components/Buttons.svelte';
+    export let primaryButtonText = '';
+export let primaryButtonLink = '';
+export let secondaryButtonText = '';
+export let secondaryButtonLink = '';
+export let lineText = '';
+export let lineLink = '';
+
+
+import bg from '$lib/images/bg.jpg?enhanced';
   </script>
   
   <section id="hero-section" class="full-page-image bg1">
     <!-- Background Image -->
     <div class="image-background">
-      <img src={backgroundImage} alt="" aria-hidden="true" />
+      <enhanced:img src={bg} alt="" />
     </div>
   
     <div class={`grid-container full hero-grid ${textAlignment}`}>
@@ -41,13 +49,14 @@
           <p class={`text-${textColor}`}>{subheading}</p>
         {/if}
   
-        {#if button1Link && button1Text}
-          <a href={button1Link} class="btn btn-outline">{button1Text}</a>
-        {/if}
-  
-        {#if button2Link && button2Text}
-          <a href={button2Link} class="btn btn-primary">{button2Text}</a>
-        {/if}
+        <ButtonGroup
+        primaryText={primaryButtonText}
+        primaryLink={primaryButtonLink}
+        secondaryText={secondaryButtonText}
+        secondaryLink={secondaryButtonLink}
+        lineText={lineText}
+        lineLink={lineLink}
+      />
       </div>
     </div>
   </section>

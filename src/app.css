@@ -92,7 +92,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		/* Buttons */
 		--btn-border-radius: 4px;
 		--btn-border-width: 2px;
-		--btn-padding: 12px 10%;
+		--btn-padding: 0.7rem 6%;
 		--btn-font-weight: 400;
 		--btn-letter-spacing: 0.13em;
 		--btn-text-transform: uppercase; /* Uppercase or None */
@@ -442,7 +442,7 @@ a:hover {
 
 /* --------------------------------   Utility Classes   -------------------------------- */
 .u-text-accent {
-	color: var(--text-color);
+	color: var(--accent);
 }
 .u-text-sm {
 	font-size: var(--text-sm)
@@ -456,6 +456,31 @@ a:hover {
 }
 .u-padding-t-0 {
 	padding-top: 0px !important;
+}
+.u-text-heavy {
+	font-weight: 900;
+}
+.u-text-light {
+	color: var(--light) !important;
+}
+.u-flex {
+	display: flex;
+}
+.u-flex-column {
+	flex-direction: column;
+}
+.u-flex-h-center {
+	justify-content: center;
+}
+.u-flex-v-center {
+	align-items: center;
+}
+
+.u-text-center {
+	text-align: center;
+}
+.u-text-left {
+	text-align: left;
 }
 
 .bg-gradient-mild::before {
@@ -685,7 +710,7 @@ button[type="submit"]::after {
 	color: var(--text-color);
 	border: var(--btn-border-width) solid var(--text-color);
 }
-.btn.btn-outline {
+.btn.btn-secondary {
 	background-color: var(--bg);
 	color: var(--text); 
 	border: var(--btn-border-width) solid var(--text-color);
@@ -706,6 +731,29 @@ button[type="submit"]::after {
 .btn:focus {
 	border-color: var(--accent);
 }
+
+.line-link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem; /* spacing between line and text */
+	color: var(--accent);
+	text-decoration: none;
+	transition: transform 0.3s ease;
+  }
+  
+  .line-link::before {
+	content: '';
+	display: inline-block;
+	width: 0;
+	height: 2px;
+	background-color: currentColor;
+	transition: width 0.3s ease;
+  }
+  
+  .line-link:hover::before {
+	width: 1.5rem; /* or 100% if you want full width */
+  }
   
 
 /* --------------------------------   Universal Elements   -------------------------------- */
@@ -888,118 +936,9 @@ blockquote figcaption {
 }
 
 
-
-
-
-
-
-
-a:hover {
-	/* background-image: url(underlines/underline1.svg);
-	background-repeat: no-repeat;
-	background-size: 150% 150%;
-	background-position: -2em;  */
-}
-
-/* Underlines */
-.underline {
-	background-repeat: no-repeat;
-	background-position: 0 0.94em;
-	background-size: 100%;
-	/* added */
-	padding: 5px 0 10px 0;
-	/***/
-}
-@media screen and (min-width: 600px) {
-	.underline {
-		padding: 10px 0 10px 0;
-	}
-}
-@media screen and (min-width: 900px) {
-	.underline {
-		padding: 20px 0 10px 0;
-	}
-}
-
-.underline.underline1 {
-	background-image: url(underlines/underline1.svg);  
-}
-.underline.underline2 {
-	background-image: url(underlines/underline2.svg);
-}
-.underline.underline3 {
-	background-image: url(underlines/underline3.svg);
-}
-
-/* Background Vertical Lines */
-
-
-.background-vertical-lines-container {
-	position: absolute;
-	height: 100%;
-	top: 0;
-	opacity: 0.1;
-	/* border-left: 1px dashed var(--accent);
-  	height: 500px; */
-}
-@media screen and (min-width: 900px) {
-	.background-vertical-lines-container {
-		opacity: 0.2;
-	}
-}
-
-.vl {
-	position: fixed;
-	width: 1px;
-	height: 120vh;
-	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='24' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-}
-.vl1 {
-	transform: translateX(8vw);
-}
-.vl2 {
-	transform: translateX(33vw);
-}
-.vl3 {
-	transform: translateX(66vw);
-}
-.vl4 {
-	transform: translateX(92vw);
-}
-
-/* #Background Vertical Lines */
-
 /* Andrea Charise Styles */
 
-.u-text-accent {
-	letter-spacing: -0.03em;
-	font-family: var(--font1);
-	color: var(--accent)
-;}
-.u-text-heavy {
-	font-weight: 900;
-}
-.u-text-light {
-	color: var(--light) !important;
-}
-.u-flex {
-	display: flex;
-}
-.u-flex-column {
-	flex-direction: column;
-}
-.u-flex-h-center {
-	justify-content: center;
-}
-.u-flex-v-center {
-	align-items: center;
-}
 
-.site-branding {
-	font-family: var(--font1);
-	font-size: 1.6em;
-
-}
 
 /* #Andrea Charise Styles */
 
@@ -1207,7 +1146,7 @@ a:hover {
     color: var(--accent);
 }
 /* Ensure the button is full width */
-.post-archive-card .btn.btn-outline {
+.post-archive-card .btn.btn-secondary {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1216,14 +1155,14 @@ a:hover {
 }
 
 /* Add the ↗ arrow inside the button */
-.post-archive-card .btn.btn-outline::after {
+.post-archive-card .btn.btn-secondary::after {
     content: "↗";
     margin-left: 8px;
     transition: transform 0.2s ease-in-out;
 }
 
 /* Scale up the arrow on hover */
-.post-archive-card .btn.btn-outline:hover::after {
+.post-archive-card .btn.btn-secondary:hover::after {
     transform: translateX(4px) rotate(15deg);
 }
 
@@ -1293,14 +1232,14 @@ a:hover {
 }
 
 /* Scoped Buttons */
-.filter-container .btn.btn-outline {
+.filter-container .btn.btn-secondary {
     padding: 10px 14px;
 	margin: 5px;
 }
 
 /* Scoped Active Filter Button */
-.filter-container .btn.btn-outline.active,
-.filter-container .btn.btn-outline:hover {
+.filter-container .btn.btn-secondary.active,
+.filter-container .btn.btn-secondary:hover {
     background: var(--accent);
     transform: translateY(-2px);
 }
