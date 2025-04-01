@@ -284,14 +284,6 @@ $: mobileNavLinks = navLinks.filter(
 	text-align: center;
 }
 
-/* Position social links at the bottom */
-.mobile-social {
-	position: absolute;
-	bottom: 2rem;
-	left: 50%;
-	transform: translateX(-50%);
-}
-
 
 	.mobile-menu ul {
 		list-style: none;
