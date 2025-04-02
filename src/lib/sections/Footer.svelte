@@ -5,6 +5,8 @@
 
     import { page } from '$app/stores';
 import { derived } from 'svelte/store';
+    import NewsLetter from '$lib/components/NewsLetter.svelte';
+	
 
 const currentPath = derived(page, $page => $page.url.pathname);
 
@@ -45,11 +47,17 @@ const currentPath = derived(page, $page => $page.url.pathname);
 
 		<!-- Column 3: Newsletter -->
 		<div class="footer-newsletter">
-			<h4>Join our newsletter</h4>
-			<form on:submit|preventDefault={() => {/* handle newsletter sign up */}}>
-				<input type="email" placeholder="Your email" required />
-				<button type="submit">Subscribe</button>
-			</form>
+			<NewsLetter
+    action="/api/newsletter"
+    heading="🌱 Stay in the Loop"
+    description="Join our community of growers and get monthly soil wisdom."
+    emailLabel="Your email address"
+    nameLabel="First name"
+    buttonText="Sign me up"
+    successMessage="🎉 You're in! Check your inbox."
+    errorMessage="😓 Something went wrong. Try again?"
+    showNameField={true}
+  />
 		</div>
 
 		<!-- Column 4: Social Links -->
@@ -105,27 +113,6 @@ const currentPath = derived(page, $page => $page.url.pathname);
 
 	.footer-nav a:hover {
 		color: var(--accent);
-	}
-
-	.footer-newsletter form {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.footer-newsletter input[type="email"] {
-		padding: 0.5rem;
-		border: 1px solid var(--border);
-		border-radius: 4px;
-	}
-
-	.footer-newsletter button {
-		padding: 0.5rem 1rem;
-		background: var(--accent);
-		color: #fff;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
 	}
 
 	.footer-social {
