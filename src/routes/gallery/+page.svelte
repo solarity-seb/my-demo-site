@@ -4,7 +4,7 @@ import PageTitle from '$lib/components/PageTitle.svelte';
 	import CallToAction from '$lib/sections/CallToAction.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
-	import Gallery from '$lib/sections/Gallery.svelte';
+  import Gallery from '$lib/sections/Gallery.svelte?client';
 	export let data;
 
 	const title = 'Gallery';
@@ -32,13 +32,7 @@ import PageTitle from '$lib/components/PageTitle.svelte';
     bg="bg1" />
 
 
-
-    {#if mounted}
     <Gallery images={data.images} />
-  {:else}
-    <p>Loading gallery…</p>
-  {/if}
-
    
 
 
