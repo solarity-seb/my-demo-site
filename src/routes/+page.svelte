@@ -3,12 +3,15 @@
 	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
   import CallToAction from '$lib/sections/CallToAction.svelte';
   
+  // SEO props
   import SEO from '$lib/components/SEO.svelte';
-  const title = 'My Page Title';
-  const description = 'This is a great description for SEO.';
-  const image = ''; // or leave out to use default
-  const url = ''; // dynamic if needed
+	const title = 'My Page Title';
+	const description = 'This is a great description for SEO.';
+	const image = '/images/opengraph.jpg'; // fallback image
+	const url = '';
   </script>
+
+  <SEO {title} {description} {image} {url} />
   
   <Hero
   backgroundImage="images/bg.jpg"

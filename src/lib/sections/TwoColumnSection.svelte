@@ -1,5 +1,4 @@
 <script lang="ts">
-  export let imageUrl = '';
   export let imageAlt = '';
   export let heading = '';
   export let text = '';
