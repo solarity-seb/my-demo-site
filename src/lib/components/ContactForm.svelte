@@ -41,15 +41,16 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<div>
-		<label for="name">Name</label>
-		<input id="name" name="name" type="text" bind:value={name} required />
-	</div>
+	<div class="form-group">
+		<input type="text" name="name" id="name" placeholder="Your Name" required />
+		<label for="name">Your Name</label>
+	  </div>
+	  
 
-	<div>
-		<label for="email">Email</label>
-		<input id="email" name="email" type="email" bind:value={email} required />
-	</div>
+	  <div class="form-group">
+		<input type="email" name="email" id="email" placeholder="email@example.com" required />
+		<label for="email">Your Email</label>
+	  </div>
 
 	<div>
 		<label for="message">Message</label>

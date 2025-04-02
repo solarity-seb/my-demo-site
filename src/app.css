@@ -130,17 +130,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 		--header-link-padding-mobile: 1.4rem;
 		--site-logo-header-width: 200px;
 		--site-logo-footer-width: 200px;
-		
-		/* Nav Menu Mobile Slide Out */
-		--nav-margin-top: 10vh; /* 100 - (Nav height) / 2 to center vertically */
-		--nav-height: 80vh;
-		--nav-width: 80%;
-		--nav-blur: 99px;
-		--nav-background: linear-gradient(20deg, #e0d02421 45.71%, #29a9e02c 65.05%);
-		--nav-translate: translate(100%, 0);
-		--nav-border-radius: 10px;
-		--nav-border: 2px solid var(--dark);
-		--nav-align: center;
 
 		/* Cards */
 		--card-padding: 10px;
@@ -166,8 +155,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     	--text-xxl: calc(var(--base-font-size) * var(--scale) * var(--scale) * var(--scale) * var(--scale));
 
 		/* Misc */
-		--main-border-light: 2px solid var(--light);
-		--main-border-dark: 2px solid var(--dark);
+		--main-border-width: 3px;
+		--main-border: var(--main-border-width) solid var(--text-color);
+		--main-border-light: var(--main-border-width) solid var(--light);
+		--main-border-dark: var(--main-border-width) solid var(--dark);
+		--main-border-accent: var(--main-border-width) solid var(--accent);
 	}
 	@media screen and (min-width: 900px) {
 		:root {
@@ -1038,12 +1030,8 @@ blockquote figcaption {
 
 
 /* Forms */
-.form-group {
-	position: relative;
-	margin: 20px 0;
-  }
   
-  input, textarea {
+input, textarea {
 	background-color: var(--bg);
 	padding: 20px;
 	color: var(--text-color);
@@ -1053,30 +1041,15 @@ blockquote figcaption {
 	font-family: var(--font1);
 	letter-spacing: var(--body-letter-spacing);
 	transition: border-color 0.2s, background-color 0.2s;
-	border: 2px solid var(--text-color);
+	border: var(--main-border);
 	border-radius: 10px;
 	outline: none;
 	font-size: var(--text-md);
   }
-  
-  textarea {
-	height: 10em;
-  }
-  
-  /* Floating Labels */
-  .form-group label {
-	position: absolute;
-	top: 50%;
-	left: 14px;
-	transform: translateY(-50%);
-	background-color: var(--bg);
-	transition: all 0.2s ease-in-out;
-	pointer-events: none;
-	padding: 0 4px;
-  }
+ 
   
   input:focus, textarea:focus {
-	border: 2px solid var(--accent);
+	border: var(--main-border-accent);
   }
   
   input:focus + label,
@@ -1087,7 +1060,7 @@ blockquote figcaption {
 	left: 15px;
 	font-size: 0.9rem;
 	color: var(--accent);
-	border: 2px solid var(--accent);
+	border: var(--main-border-accent);
 	border-radius: 4px;;
   }
   
@@ -1124,7 +1097,7 @@ blockquote figcaption {
 	font-family: var(--font1);
 	letter-spacing: 2px;
 	transition-duration: 0.2s;
-	border: 2px solid var(--accent);
+	border: var(--main-border-accent);
 	cursor: pointer;
   }
   
@@ -1135,6 +1108,33 @@ blockquote figcaption {
 	border-color: var(--accent-color);
   }
   
+  .form-group {
+	position: relative;
+	margin-top: 2rem;
+}
+
+.form-group label {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: var(--text-md);
+	color: var(--grey-600);
+	pointer-events: none;
+	background: var(--bg);
+	padding: 0 5px;
+	transition: all 0.2s var(--cubic);
+}
+
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+	top: -10px;
+	left: 15px;
+	font-size: 0.9rem;
+	color: var(--accent);
+}
+
 
 
 
