@@ -54,10 +54,9 @@
 				<div class="badge text--xs">Best Value</div>
 			{/if}
 
-			<h2>{plan.name}</h2>
+			<h2 class="text--md">{plan.name}</h2>
 			<p class="description">{plan.description}</p>
 			<p class="price">${plan.price} <span class="u-text-grey">USD</span></p>
-			<a href="#" class="btn btn-primary">Start a free trial</a>
 
 			<ul class="features">
 				{#each plan.features as feature}
@@ -71,6 +70,7 @@
 					</li>
 				{/each}
 			</ul>
+            <a href="/contact" class="btn btn-secondary btn-full-width">Get Yours</a>
 		</article>
     </div>
 	{/each}
@@ -97,6 +97,7 @@
 		padding: 2rem;
 		position: relative;
 		transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border: 2px solid var(--bg);
 	}
 
 	.pricing-card:hover {
@@ -109,7 +110,7 @@
 
 	.badge {
 		position: absolute;
-		top: 1rem;
+		top: -0.9rem;
 		right: 1rem;
 		background: var(--accent);
 		color: var(--light);
@@ -119,14 +120,13 @@
 
 	h2 {
 		margin: 0;
-		font-size: 1.5rem;
 		color: var(--accent);
 	}
 
 	.description {
 		margin: 0.5rem 0 1.5rem;
 		font-size: 0.95rem;
-		color: var(--text-color-grey);
+		color: var(--grey-700);
 	}
 
 	.price {
@@ -139,7 +139,7 @@
 		display: block;
 		font-size: 0.9rem;
 		font-weight: normal;
-		color: var(--text-color-grey);
+		color: var(--grey-700);
 	}
 
 	.features {
@@ -155,7 +155,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		color: #999;
+		color: var(--grey-700);
 	}
 
 	.features li.available {
@@ -163,7 +163,7 @@
 	}
 
     .card-border {
-        border: 1px solid var(--text-color-grey);
+        border: 1px solid var(--grey-300);;
         padding: 8px;
         border-radius: 1.2rem;
     }

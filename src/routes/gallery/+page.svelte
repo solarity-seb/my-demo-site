@@ -1,23 +1,73 @@
-<svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
+<script>
+	import PageTitle from '$lib/components/PageTitle.svelte';
+	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+  import CallToAction from '$lib/sections/CallToAction.svelte';
+  
+  // SEO props
+  import SEO from '$lib/components/SEO.svelte';
+	const title = 'Gallery';
+	const description = 'This is a great description for SEO.';
+	const image = ''; // fallback image
+	const url = '';
+  </script>
 
-<div class="text-column">
-	<h1>Gallery</h1>
+  <SEO {title} {description} {image} {url} />
+  
+  <PageTitle 
+  	eyebrow="Photos"
+  	heading="Gallery"
+	subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+    alignment="center"
+    bg="bg1" />
 
-	<p>
-		This is a <a href="https://svelte.dev/docs/kit">SvelteKit</a> app. You can make your own by typing
-		the following into your command line and following the prompts:
-	</p>
 
-	<pre>npx sv create</pre>
+  
+  <TwoColumnSection
+  eyebrow="Eyebrow"
+	heading="Grow food without chemicals"
+	text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
+	imageUrl="/images/svelte-welcome.webp"
+	imageAlt="Lush garden bed full of vegetables"
+	reverse={false}
+  bgClass="bg2"
+  />
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
+  <TwoColumnSection
+  heading="Grow Nutrient-Rich Soil"
+  eyebrow="Soil Wisdom"
+  text="Healthy soil grows healthy food. We believe in no-till, compost, and living systems."
+  reverse={true}
+  bgClass="bg1"
+  primaryText="Contact"
+  primaryLink="/contact"
+  lineText="About"
+  lineLink="/about"
+/>
 
-	
-</div>
+  
+<TwoColumnSection
+heading="Grow Nutrient-Rich Soil"
+eyebrow="Soil Wisdom"
+text="Healthy soil grows healthy food. We believe in no-till, compost, and living systems."
+reverse={false}
+bgClass="bg2"
+primaryText="Contact"
+primaryLink="/contact"
+lineText="About"
+lineLink="/about"
+/>
+  
+
+<CallToAction
+  headline="Ready to start your journey?"
+  text="Let’s build your future, one step at a time."
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/contact"
+  secondaryButtonText="Learn More"
+  secondaryButtonLink="/about"
+  lineText="Maybe later"
+  lineLink="/"
+  bg="bg1"
+  useCard={true}
+  centered={true}
+/>

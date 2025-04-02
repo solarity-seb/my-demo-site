@@ -48,7 +48,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--grey: #515151;
 	--danger: rgb(169, 23, 23);
 	--card-color: #E3F2FD;
-	--bg-gradient: linear-gradient(20deg, #BBDEFB 15.71%, #E3F2FD 65.05%);
 }
 
 /* 🌞 Default light theme (fallback + explicit) */
@@ -58,10 +57,21 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--bg2: #B1BFAF;
 	--bg3: var(--dark);
 	--text-color: #232828;
-	--text-color-grey: #272a2a;
+	--grey-900: #272a2a;
 	--accent: #70A99D;
 	--accent-2: #479D8B;
 	--accent-3: #42A5F5;
+	--bg-gradient: linear-gradient(20deg, #BBDEFB 15.71%, #E3F2FD 65.05%);
+
+	--grey-100: color-mix(in srgb, var(--text-color) 10%, white);
+	--grey-200: color-mix(in srgb, var(--text-color) 20%, white);
+	--grey-300: color-mix(in srgb, var(--text-color) 30%, white);
+	--grey-400: color-mix(in srgb, var(--text-color) 40%, white);
+	--grey-500: color-mix(in srgb, var(--text-color) 50%, white);
+	--grey-600: color-mix(in srgb, var(--text-color) 60%, white);
+	--grey-700: color-mix(in srgb, var(--text-color) 70%, white);
+	--grey-800: color-mix(in srgb, var(--text-color) 80%, white);
+	--grey-900: color-mix(in srgb, var(--text-color) 90%, white);
 }
 
 /* 🌚 Dark theme overrides */
@@ -70,10 +80,21 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--bg2: #313131;
 	--bg3: #181818;
 	--text-color: var(--light);
-	--text-color-grey: #a9a9a9;
+	--grey-900: #a9a9a9;
 	--accent: #3d49b2;
 	--accent-2: #A3C487;
 	--accent-3: #bedaa5;
+	--bg-gradient: linear-gradient(20deg, #330d52 15.71%, #140521 65.05%);
+
+	--grey-100: color-mix(in srgb, var(--text-color) 10%, black);
+	--grey-200: color-mix(in srgb, var(--text-color) 20%, black);
+	--grey-300: color-mix(in srgb, var(--text-color) 30%, black);
+	--grey-400: color-mix(in srgb, var(--text-color) 40%, black);
+	--grey-500: color-mix(in srgb, var(--text-color) 50%, black);
+	--grey-600: color-mix(in srgb, var(--text-color) 60%, black);
+	--grey-700: color-mix(in srgb, var(--text-color) 70%, black);
+	--grey-800: color-mix(in srgb, var(--text-color) 80%, black);
+	--grey-900: color-mix(in srgb, var(--text-color) 90%, black);
 }
 
 	
@@ -233,7 +254,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	/* Text selection highlight colors */
 	::selection {
 		color: var(--bg);
-		background-color: var(--text-color-grey);
+		background-color: var(--grey-900);
 	}
 
 /* --------------------------------   HTML and Body Tags   -------------------------------- */
@@ -363,7 +384,7 @@ img {
 	opacity: 0.5;
 }
 .border {
-	border-bottom: 1px solid var(--text-color-grey);
+	border-bottom: 1px solid var(--grey-900);
 }
 /* Section Padding */
 section {
@@ -653,7 +674,11 @@ p {
 	}
 
 	p {
-		color: var(--text-color-grey);
+		color: var(--grey-900);
+	}
+
+	.subheading {
+		color: var(--grey-700);
 	}
 
 	blockquote {
@@ -663,7 +688,7 @@ p {
 
 
 /* --------------------------------   Button Styles   -------------------------------- */
-.btn, button, input[type=submit] {
+.btn, button, input[type=mit] {
 	border-radius: var(--btn-border-radius);
 	padding: var(--btn-padding);
 	transition: 0.3s;
@@ -741,6 +766,10 @@ button[type="submit"]::after {
 	background-color: var(--text-color);
 	-webkit-box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.103); 
 	box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.103);
+}
+.btn.btn-full-width {
+	width: 100%;
+	text-align: center;
 }
 .bg3 .btn, 
 .bg3 .btn:hover, .bg3 .btn:active, .bg3 .btn:focus, .bg3 input[type=submit]:hover, .bg3 input[type=submit]:focus, .bg3 input[type=submit]:active {
@@ -1008,256 +1037,6 @@ blockquote figcaption {
 }
 
 
-/* Post WP Image */
-.post-template-default .wp-block-image.size-large {
-		position: relative;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 120%;
-		max-width: 100vw; /* Prevents it from exceeding the viewport width */
-		display: block;
-	
-}
-
-.loading-message {
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--text-color-grey);
-}
-
-/* Spinner Styling */
-.loading-message::after {
-    content: "";
-    display: inline-block;
-    margin-left: 8px;
-    width: 1em;
-    height: 1em;
-    border: 3px solid var(--accent);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* Ajax Filter Stuff */
-.post-grid {
-    padding-bottom: 6em;
-  }
-  .card-content {
-    padding: 10px;
-  }
-  .post-thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.post-archive-card {
-    position: relative;
-    overflow: hidden;
-	width: 100%;
-}
-
-/* Ensure only the image link gets the overlay and arrow effect */
-.post-archive-card .image-link {
-    position: relative;
-    display: block;
-}
-
-/* Image Overlay */
-.post-archive-card .image-link::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.post-archive-card .image-link:hover::before {
-    opacity: 1;
-}
-
-/* Arrow Icon */
-.post-archive-card .image-link::after {
-    content: "↗";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.post-archive-card .image-link:hover::after {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
-}
-
-/* Ensure the card content remains unaffected */
-.post-archive-card .card-content {
-    padding: 10px;
-}
-
-.post-archive-card .post-thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Style for the post (date) */
-.post-archive-card .post-date {
-    color: var(--text-muted); /* Adjust to match your theme */
-    margin-bottom: 12px;
-    display: block;
-}
-.post-archive-card .post-date svg {
-	margin-right: 0.2rem;
-	margin-bottom: -2px;
-}
-
-/* Tags styling */
-.post-archive-card .post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 12px;
-}
-
-.post-archive-card .post-tags a {
-    font-size: 0.85rem;
-    background: var(--accent);
-    color: var(--dark);
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s ease-in-out;
-}
-
-.post-archive-card .post-tags a:hover {
-    background: var(--dark);
-    color: var(--accent);
-}
-/* Ensure the button is full width */
-.post-archive-card .btn.btn-secondary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Make the button full width */
-    margin-bottom: 0;
-}
-
-/* Add the ↗ arrow inside the button */
-.post-archive-card .btn.btn-secondary::after {
-    content: "↗";
-    margin-left: 8px;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* Scale up the arrow on hover */
-.post-archive-card .btn.btn-secondary:hover::after {
-    transform: translateX(4px) rotate(15deg);
-}
-
-
-#post-container {
-	padding-bottom: 6em;
-}
-
-/* Filter Container */
-.filter-container {
-    display: flex;
-    flex-direction: column;
-
-    margin-bottom: 20px;
-    align-items: center; /* Center everything */
-}
-
-/* Filter Group */
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center label and buttons */
-    width: 100%;
-}
-
-/* Filter Group */
-.filter-group {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Filter Label */
-.filter-label {
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--text-color);
-    text-align: center;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    position: relative;
-}
-
-/* Add an underline effect */
-.filter-label::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--accent);
-    margin: 5px auto 0;
-}
-
-/* Ensure the container aligns properly */
-.filter-group {
-    text-align: center;
-}
-
-
-/* Button Layout */
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap:1px;
-    justify-content: center;
-}
-
-/* Scoped Buttons */
-.filter-container .btn.btn-secondary {
-    padding: 10px 14px;
-	margin: 5px;
-}
-
-/* Scoped Active Filter Button */
-.filter-container .btn.btn-secondary.active,
-.filter-container .btn.btn-secondary:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
-}
-
-/* Mobile Adjustments */
-/* @media (max-width: 768px) {
-    .filter-buttons {
-        flex-direction: column;
-    }
-} */
-
 /* Forms */
 .form-group {
 	position: relative;
@@ -1379,27 +1158,4 @@ blockquote figcaption {
 
 
 
-
-/* Final CTA */
-  .final-cta {
-	margin-top: -80px;
-  }
-.final-cta {
-	transform: translateY(80px);
-}
-.final-cta .card {
-	width: 100%;
-	padding-top: 24px;
-}
-@media screen and (min-width: 900px) {
-	.final-cta {
-		transform: translateY(100px);
-	}
-}
-.arrow {
-    transition: transform 0.4s ease;
-  }
-  .footer-btn:hover .arrow, .footer-btn:active .arrow, .footer-btn:focus .arrow {
-    transform: translateX(10px);
-  }
 

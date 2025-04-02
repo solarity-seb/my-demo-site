@@ -313,20 +313,20 @@ $: mobileNavLinks = navLinks.filter(
 }
 
 
-	.mobile-menu ul {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+.mobile-menu ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+}
 
-	.mobile-menu a {
-		text-decoration: none;
-		color: var(--text);
-		font-weight: 500;
-		font-size: 1.2rem;
-	}
+.mobile-menu a {
+	text-align: center;
+	width: 100%; /* Optional: ensures bigger clickable area */
+}
+
 
 	@media (max-width: 768px) {
 		.nav-links {
