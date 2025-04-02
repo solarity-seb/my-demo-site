@@ -1,5 +1,4 @@
 <script>
-    export let backgroundImage = '';
     export let textAlignment = 'center'; // 'start', 'center', 'end'
     export let subheadingAboveHeading = '';
     export let heading = '';

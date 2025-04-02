@@ -9,9 +9,14 @@
 	const description = 'This is a great description for SEO.';
 	const image = ''; // fallback image
 	const url = '';
+
+  import Gallery from '$lib/sections/Gallery.svelte';
+  export let data;
   </script>
 
   <SEO {title} {description} {image} {url} />
+
+
   
   <PageTitle 
   	eyebrow="Photos"
@@ -21,28 +26,14 @@
     bg="bg1" />
 
 
-  
-  <TwoColumnSection
-  eyebrow="Eyebrow"
-	heading="Grow food without chemicals"
-	text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
-	imageUrl="/images/svelte-welcome.webp"
-	imageAlt="Lush garden bed full of vegetables"
-	reverse={false}
-  bgClass="bg2"
-  />
 
-  <TwoColumnSection
-  heading="Grow Nutrient-Rich Soil"
-  eyebrow="Soil Wisdom"
-  text="Healthy soil grows healthy food. We believe in no-till, compost, and living systems."
-  reverse={true}
-  bgClass="bg1"
-  primaryText="Contact"
-  primaryLink="/contact"
-  lineText="About"
-  lineLink="/about"
-/>
+      <Gallery images={data.images} />
+
+   
+
+
+  
+  
 
   
 <TwoColumnSection
