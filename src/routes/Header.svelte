@@ -79,7 +79,22 @@ $: mobileNavLinks = navLinks.filter(
 	$: if (typeof document !== 'undefined') {
 	document.body.classList.toggle('menu-open', menuOpen);
 }
+
+let showFixedHamburger = false;
+
+onMount(() => {
+	const handleScroll = () => {
+		showFixedHamburger = window.scrollY > 80;
+	};
+
+	handleScroll(); // in case user is already scrolled
+	window.addEventListener('scroll', handleScroll);
+	return () => window.removeEventListener('scroll', handleScroll);
+});
+
+
 </script>
+
 
 <div class:menu-open={menuOpen}>
 	<nav class="navbar">
@@ -181,6 +196,23 @@ $: mobileNavLinks = navLinks.filter(
 
 	</div>
 </nav>
+{#if showFixedHamburger}
+	<button
+		class="hamburger fixed-hamburger"
+		on:click={() => (menuOpen = !menuOpen)}
+		aria-label="Toggle menu"
+		aria-expanded={menuOpen}
+		aria-controls="mobile-menu"
+		transition:fade
+	>
+		<div class="hamburger-icon" class:open={menuOpen}>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</button>
+{/if}
+
 </div>
 
 
@@ -397,6 +429,30 @@ $: mobileNavLinks = navLinks.filter(
   justify-content: center;
   gap: 1rem;
 }
+
+.fixed-hamburger {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	z-index: 1002; /* higher than everything else */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.3s ease;
+	fill: white;
+	mix-blend-mode: difference;
+}
+.fixed-hamburger span {
+	background-color: white; /* needs contrast to show difference */
+	mix-blend-mode: difference;
+}
+
+
+
 
 
 </style>
