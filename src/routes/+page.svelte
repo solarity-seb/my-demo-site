@@ -235,7 +235,7 @@ bgClass="bg1"
 col1Width="col-4"
 col2Width="col-8"
 reverseMobile={false}
-reverseDesktop={title}
+reverseDesktop={true}
 >
 <div slot="left">
   <TextBlock

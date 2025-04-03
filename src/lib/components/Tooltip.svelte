@@ -6,8 +6,11 @@
 .tooltip-wrapper {
 	position: relative;
 	display: inline-block;
-	cursor: pointer;
+	vertical-align: top; /* fixes small baseline issues */
 }
+
+
+
 
 .tooltip-content {
 	position: absolute;
