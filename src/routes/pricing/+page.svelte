@@ -4,7 +4,7 @@
 </svelte:head>
 
 <script>
-	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+	import TwoCol from '$lib/sections/TwoCol.svelte';
 	import CallToAction from '$lib/sections/CallToAction.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
   import Pricing from '$lib/components/Pricing.svelte';

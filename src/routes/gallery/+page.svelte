@@ -1,6 +1,6 @@
 <script>
 import PageTitle from '$lib/components/PageTitle.svelte';
-	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+	import TwoCol from '$lib/sections/TwoCol.svelte';
 	import CallToAction from '$lib/sections/CallToAction.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
@@ -40,7 +40,7 @@ import PageTitle from '$lib/components/PageTitle.svelte';
   
 
   
-<TwoColumnSection
+<TwoCol
 heading="Grow Nutrient-Rich Soil"
 eyebrow="Soil Wisdom"
 text="Healthy soil grows healthy food. We believe in no-till, compost, and living systems."

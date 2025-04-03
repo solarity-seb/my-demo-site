@@ -4,9 +4,13 @@
 </svelte:head>
 
 <script>
-	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
+	import TwoCol from '$lib/sections/TwoCol.svelte';
 	import CallToAction from '$lib/sections/CallToAction.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
+
+  import image from '$lib/images/bg.jpg?enhanced';
+  import TextBlock from '$lib/components/TextBlock.svelte';
+  import Buttons from '$lib/components/Buttons.svelte';
 </script>
 
 <PageTitle 
@@ -17,15 +21,35 @@
   bg="bg1"
 />
 
-<TwoColumnSection
-eyebrow="Eyebrow"
-  heading="Grow food without chemicals"
-  text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
-  imageUrl="/images/svelte-welcome.webp"
-  imageAlt="Lush garden bed full of vegetables"
-  reverse={false}
+<TwoCol
 bgClass="bg2"
-/>
+col1Width="col-6"
+col2Width="col-6"
+reverseMobile={false}
+reverseDesktop={false}
+>
+
+<div slot="left">
+  <TextBlock
+    eyebrow="Eyebrow here"
+    heading="Dynamic content layout"
+    text="This layout now uses slots. That means full flexibility!"
+    centered={false}
+  />
+
+  <Buttons
+    primaryText="Get Started"
+    primaryLink="/start"
+    secondaryText="More Info"
+    secondaryLink="/about"
+    centered={false}
+  />
+</div>
+
+<div slot="right">
+  <enhanced:img src={image} alt="Cool layout" loading="lazy" width="1200" height="600" />
+</div>
+</TwoCol>
 
 
 <CallToAction

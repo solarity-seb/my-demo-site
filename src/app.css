@@ -1,5 +1,7 @@
 @import url($lib/styles/barebones.css);
 @import url($lib/styles/flex-grid.css);
+@import url($lib/styles/variables.css);
+
 
 /*!
 Theme Name: Seb Jagoe Custom Theme Boilerplate
@@ -37,149 +39,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* --------------------------------   Custom Blocks   -------------------------------- */
 
 /* --------------------------------   Variables   -------------------------------- */
-
-/* 🧱 Base (shared) variables: don't change between light/dark */
-:root {
-	--success: #2E7D32;
-	--light: #EEE6DD;
-	--light-transparent: rgba(227, 242, 253, 0.6);
-	--dark-transparent: rgba(30, 58, 95, 0.6);
-	--accent-transparent: rgba(112, 169, 157, 0.486);
-	--dark: #101010;
-	--grey: #515151;
-	--danger: rgb(169, 23, 23);
-	--card-color: #E3F2FD;
-}
-
-/* 🌞 Default light theme (fallback + explicit) */
-:root:not([color-mode]),
-:root[color-mode="light"] {
-	--bg: var(--light);
-	--bg2: #B1BFAF;
-	--bg3: var(--dark);
-	--text-color: #232828;
-	--grey-900: #272a2a;
-	--accent: #70A99D;
-	--accent-2: #479D8B;
-	--accent-3: #42A5F5;
-	--bg-gradient: linear-gradient(20deg, #BBDEFB 15.71%, #E3F2FD 65.05%);
-
-	--grey-100: color-mix(in srgb, var(--text-color) 10%, white);
-	--grey-200: color-mix(in srgb, var(--text-color) 20%, white);
-	--grey-300: color-mix(in srgb, var(--text-color) 30%, white);
-	--grey-400: color-mix(in srgb, var(--text-color) 40%, white);
-	--grey-500: color-mix(in srgb, var(--text-color) 50%, white);
-	--grey-600: color-mix(in srgb, var(--text-color) 60%, white);
-	--grey-700: color-mix(in srgb, var(--text-color) 70%, white);
-	--grey-800: color-mix(in srgb, var(--text-color) 80%, white);
-	--grey-900: color-mix(in srgb, var(--text-color) 90%, white);
-}
-
-/* 🌚 Dark theme overrides */
-:root[color-mode="dark"] {
-	--bg:  var(--dark);
-	--bg2: #313131;
-	--bg3: #181818;
-	--text-color: var(--light);
-	--grey-900: #a9a9a9;
-	--accent: #3d49b2;
-	--accent-2: #A3C487;
-	--accent-3: #bedaa5;
-	--bg-gradient: linear-gradient(20deg, #330d52 15.71%, #140521 65.05%);
-
-	--grey-100: color-mix(in srgb, var(--text-color) 10%, black);
-	--grey-200: color-mix(in srgb, var(--text-color) 20%, black);
-	--grey-300: color-mix(in srgb, var(--text-color) 30%, black);
-	--grey-400: color-mix(in srgb, var(--text-color) 40%, black);
-	--grey-500: color-mix(in srgb, var(--text-color) 50%, black);
-	--grey-600: color-mix(in srgb, var(--text-color) 60%, black);
-	--grey-700: color-mix(in srgb, var(--text-color) 70%, black);
-	--grey-800: color-mix(in srgb, var(--text-color) 80%, black);
-	--grey-900: color-mix(in srgb, var(--text-color) 90%, black);
-}
-
-	
-
-	:root {
-		/* Variables */
-		--cubic: cubic-bezier( 0.165, 0.84, 0.44, 1 ) ;
-		--cubic2: cubic-bezier(0.65, 0.05, 0, 1);
-
-		/* Barebones Grid */
-		--grid-width: 80%;
-		--grid-width-mobile: 90%;
-		--grid-max-width: 1200px;
-
-		/* Buttons */
-		--btn-border-radius: 4px;
-		--btn-border-width: 2px;
-		--btn-padding: 0.7rem 6%;
-		--btn-font-weight: 400;
-		--btn-letter-spacing: 0.13em;
-		--btn-text-transform: uppercase; /* Uppercase or None */
-		--btn-margin: var(--text-md) 5px var(--text-md) 0;
-		
-		/* Sections */
-		--section-padding: 6em 0%;
-		--section-padding-mobile: 4em 0%;
-
-		/* Header */
-		--header-link-color: var(--dark); /* --light or --dark probably */
-		--header-link-color-hover: var(--accent); /* --accent probably */
-		--header-link-size: 1.2rem;
-		--header-link-size-mobile: 2rem;
-		--header-link-padding-mobile: 1.4rem;
-		--site-logo-header-width: 200px;
-		--site-logo-footer-width: 200px;
-
-		/* Cards */
-		--card-padding: 10px;
-
-
-		/* Typography */
-		--base-font-size: 1rem;
-		--scale: 1.3;
-		--heading-letter-spacing: -0.03em;
-		--body-letter-spacing: -0.05em;
-		--heading-line-height: 0.9;
-		--heading-margins: 1.2rem;
-		--body-line-height: 1.3;
-		--paragraph-margin-bottom: 1rem;
-		--font1: 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-		--font2: 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-		--text-xs: calc(var(--base-font-size) - 0.2rem);
-    	--text-sm: calc(var(--base-font-size));
-    	--text-md: calc(var(--base-font-size) * var(--scale));
-    	--text-lg: calc(var(--base-font-size) * var(--scale) * var(--scale));
-		--text-xl: calc(var(--base-font-size) * var(--scale) * var(--scale) * var(--scale));
-    	--text-xxl: calc(var(--base-font-size) * var(--scale) * var(--scale) * var(--scale) * var(--scale));
-
-		/* Misc */
-		--main-border-width: 3px;
-		--main-border: var(--main-border-width) solid var(--text-color);
-		--main-border-light: var(--main-border-width) solid var(--light);
-		--main-border-dark: var(--main-border-width) solid var(--dark);
-		--main-border-accent: var(--main-border-width) solid var(--accent);
-	}
-	@media screen and (min-width: 900px) {
-		:root {
-			--base-font-size: 1.2rem;
-			--scale: 1.4;
-		}
-	}
-	@media screen and (min-width: 1300px) {
-		:root {
-			--base-font-size: 1.2rem;
-			--scale: 1.5;
-		}
-	}
-
-
-	
-	/* Barebones */
-
-
 	
 
 
@@ -339,36 +198,60 @@ img {
 
 
 /* --------------------------------   Sections   -------------------------------- */
+/* Section Backgrounds */
 .bg0 {
-	background-color: #ffffff00;
+	background-color: transparent;
 }
+
 .bg1 {
 	background-color: var(--bg);
+	color: var(--text-color);
 }
+
 .bg2 {
 	background-color: var(--bg2);
+	color: var(--text-color);
 }
+
+/* Inverted section – dark on light mode, regular on dark mode */
 .bg3 {
 	background-color: var(--bg3);
 }
 
-.bg2 p, .bg2 h1, .bg2 h2, .bg2 h3, .bg2 h4, .bg2 h5, .bg2 h6, .bg2 cite {
-	color: var(--text-color);
+/* Light mode overrides for .bg3 to make it inverted */
+:root[color-mode="light"] .bg3 {
+	color: var(--light);
+	color-scheme: dark; /* Automatically inverts inputs, scrollbars, etc. */
 }
-.bg3 p, .bg3 h1, .bg3 h2, .bg3 h3, .bg3 h4, .bg3 h5, .bg3 h6, .bg3 cite, .bg3 small, .bg3 figcaption {
+
+/* Light mode – fix elements inside .bg3 */
+:root[color-mode="light"] .bg3 :where(p, h1, h2, h3, h4, h5, h6, cite, small, figcaption) {
 	color: var(--light);
 }
-/* bg3 Card */
-.bg3 .card p {
+
+/* .bg3 Card tweaks (light mode only) */
+:root[color-mode="light"] .bg3 .card {
+	background-color: var(--bg);
+	color: var(--dark);
+	border-color: var(--light); /* optional: adapt border contrast */
+}
+
+:root[color-mode="light"] .bg3 .card p {
 	color: var(--dark);
 }
-.bg3 .card a,
-.bg3 .u-text-accent, .bg3 h3 {
+
+:root[color-mode="light"] .bg3 .card a,
+:root[color-mode="light"] .bg3 .u-text-accent,
+:root[color-mode="light"] .bg3 h3 {
 	color: var(--light);
 }
-.bg3 .card a:hover, .bg3 .card a:active,.bg3 .card a:focus {
+
+:root[color-mode="light"] .bg3 .card a:hover,
+:root[color-mode="light"] .bg3 .card a:active,
+:root[color-mode="light"] .bg3 .card a:focus {
 	color: var(--accent-2);
 }
+
 /* #bg3 Card */
 .bg-gradient {
 	background: var(--bg-gradient);
@@ -488,6 +371,7 @@ a:hover {
 }
 .u-flex-v-center {
 	align-items: center;
+	align-content: center;
 }
 
 .u-text-center {
