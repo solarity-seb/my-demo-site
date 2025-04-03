@@ -71,13 +71,13 @@
 		--grid-max-width: 1200px;
 
 		/* Buttons */
-		--btn-border-radius: 4px;
-		--btn-border-width: 2px;
-		--btn-padding: 0.7rem 6%;
+		--btn-border-radius: 90px;
+		--btn-border-width: 1.5px;
+		--btn-padding: 0.5rem 4%;
 		--btn-font-weight: 400;
-		--btn-letter-spacing: 0.13em;
-		--btn-text-transform: uppercase; /* Uppercase or None */
-		--btn-margin: var(--text-md) 5px var(--text-md) 0;
+		--btn-letter-spacing: -0.03em;
+		--btn-text-transform: none; /* Uppercase or None */
+		--btn-margin: 0;
 		
 		/* Sections */
 		--section-padding: 6em 0%;

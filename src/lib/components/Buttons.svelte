@@ -10,7 +10,7 @@
   export let centered: boolean = true;
 </script>
 
-<div class={centered ? 'u-flex u-flex-h-center u-flex-v-center' : ''}>
+<div class={`btn-container u-flex u-flex-v-center${centered ? ' u-flex-h-center' : ''}`}>
   {#if primaryText && primaryLink}
     <a href={primaryLink} class="btn btn-primary">{primaryText}</a>
   {/if}

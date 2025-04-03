@@ -577,6 +577,10 @@ button {
 	border: var(--btn-border-width) solid var(--text-color);
 	margin: 10px;
 }
+.btn-container {
+	gap: 10px;
+	padding-bottom: var(--text-md)
+}
 
 .nav-cta {
 	border-radius: var(--btn-border-radius);
@@ -655,6 +659,7 @@ button[type="submit"]::after {
 	color: var(--accent);
 	text-decoration: none;
 	transition: transform 0.3s ease;
+	font-size: var(--text-sm);
   }
   
   .line-link::before {

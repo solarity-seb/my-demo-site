@@ -1,5 +1,5 @@
 <script>
-	import Hero from '$lib/sections/Hero.svelte';
+	import HeroProduct from '$lib/sections/HeroProduct.svelte';
 	import TwoCol from '$lib/sections/TwoCol.svelte';
   import CallToAction from '$lib/sections/CallToAction.svelte';
   import VideoEmbed from '$lib/components/VideoEmbed.svelte';
@@ -40,12 +40,13 @@
 
 
   
-  <Hero
+  <HeroProduct
   backgroundImage="images/bg.jpg"
   textAlignment="center"
-  subheadingAboveHeading="Your Tagline Here"
+  badge="New"
+  eyebrow="Your Tagline Here"
   heading="Welcome to the Institute"
-  subheading="We’re redefining research for the Anthropocene"
+  text="We’re redefining research for the Anthropocene"
   button1Text="Learn More"
   button1Link=""
   button2Text="Get Involved"
@@ -55,7 +56,7 @@
   primaryButtonLink="/contact"
   
   lineText="Maybe later"
-  lineLink="/"
+  lineLink="/about"
 />
 
 
@@ -100,72 +101,8 @@
     centered={true}
   />
 
-  <Card
-  title="Grow a Food Forest"
-  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
-  image={image}
-  alt="Lush green food forest with layered planting"
-  link="/learn-more"
-  ctaText="Start Growing"
-  variant="basic"
-  badge="New"
-  tags={['Permaculture', 'Regenerative']}
-  icon=""
-  hoverEffect={false}
-  clickable={false}
-  aspectRatio="16/9"
-/>
+  
 </OneCol>
-
-<section class="bg3">
-  <div class="grid-container auto">
-    <Card
-  title="Grow a Food Forest"
-  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
-  image={image}
-  alt="Lush green food forest with layered planting"
-  link="/learn-more"
-  ctaText="Start Growing"
-  variant="horizontal"
-  badge="New"
-  tags={['Permaculture', 'Regenerative']}
-  icon=""
-  hoverEffect={true}
-  clickable={true}
-  aspectRatio="16/9"
-/>
-    <Card
-  title="Grow a Food Forest"
-  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
-  image={image}
-  alt="Lush green food forest with layered planting"
-  link="/learn-more"
-  ctaText="Start Growing"
-  variant="basic"
-  badge="New"
-  tags={['Permaculture', 'Regenerative']}
-  icon=""
-  hoverEffect={false}
-  clickable={false}
-  aspectRatio="16/9"
-/>
-    <Card
-  title="Grow a Food Forest"
-  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
-  image={image}
-  alt="Lush green food forest with layered planting"
-  link="/learn-more"
-  ctaText="Start Growing"
-  variant="basic"
-  badge="New"
-  tags={['Permaculture', 'Regenerative']}
-  icon=""
-  hoverEffect={false}
-  clickable={false}
-  aspectRatio="16/9"
-/>
-  </div>
-</section>
 
 
 
