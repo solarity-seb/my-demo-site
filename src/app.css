@@ -1,4 +1,5 @@
 @import url($lib/styles/barebones.css);
+@import url($lib/styles/flex-grid.css);
 
 /*!
 Theme Name: Seb Jagoe Custom Theme Boilerplate
@@ -378,16 +379,7 @@ img {
 .border {
 	border-bottom: 1px solid var(--grey-900);
 }
-/* Section Padding */
-section {
-	padding: var(--section-padding-mobile);
-	position: relative;
-}
-@media screen and (min-width: 900px) {
-	section {
-		padding: var(--section-padding);
-	}
-}
+
 section .container {
 	width: var(--grid-width-mobile);
 	  max-width: var(--grid-max-width);

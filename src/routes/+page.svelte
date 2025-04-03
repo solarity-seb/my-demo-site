@@ -2,6 +2,11 @@
 	import Hero from '$lib/sections/Hero.svelte';
 	import TwoColumnSection from '$lib/sections/TwoColumnSection.svelte';
   import CallToAction from '$lib/sections/CallToAction.svelte';
+  import VideoEmbed from '$lib/components/VideoEmbed.svelte';
+
+  import OneCol from '$lib/sections/OneCol.svelte';
+  import TextBlock from '$lib/components/TextBlock.svelte';
+  import Buttons from '$lib/components/Buttons.svelte';
   
   // SEO props
   import SEO from '$lib/components/SEO.svelte';
@@ -32,6 +37,34 @@
 />
 
 
+<OneCol>
+  <TextBlock
+    eyebrow="Welcome"
+    heading="This is a one-column layout"
+    text="You can add any content here — text, buttons, images, videos."
+    centered={true}
+  />
+
+  <Buttons
+    primaryText="Learn more"
+    primaryLink="/about"
+    secondaryText="Contact us"
+    secondaryLink="/contact"
+    centered={true}
+  />
+
+
+  <VideoEmbed
+  src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  title="Never Gonna Give You Up"
+  thumbnail=""
+  aspectRatio="16:9"
+  autoplay={true}
+/>
+</OneCol>
+
+
+
   
   <TwoColumnSection
   eyebrow="Eyebrow"
@@ -39,8 +72,11 @@
 	text="We use compost, worms, and rainwater to build soil instead of destroying it. Learn how to grow nutrient-dense food naturally."
 	imageUrl="/images/svelte-welcome.webp"
 	imageAlt="Lush garden bed full of vegetables"
-	reverse={false}
   bgClass="bg2"
+  col1Width="col-4"
+  col2Width="col-8"
+  reverseMobile={false}
+  reverseDesktop={true}
   />
 
   <TwoColumnSection
