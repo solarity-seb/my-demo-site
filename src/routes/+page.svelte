@@ -37,3 +37,198 @@
 
   
   
+
+
+  
+  <HeroProduct
+  backgroundImage="images/bg.jpg"
+  textAlignment="center"
+  badge="New"
+  eyebrow="Your Tagline Here"
+  heading="Welcome to the Institute"
+  text="We’re redefining research for the Anthropocene"
+  button1Text="Learn More"
+  button1Link=""
+  button2Text="Get Involved"
+  button2Link=""
+  textColor="light"
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/contact"
+  
+  lineText="Maybe later"
+  lineLink="/about"
+/>
+
+
+
+
+<OneCol>
+  <TextBlock
+    eyebrow="Welcome"
+    heading="This is a one-column layout"
+    text="You can add any content here — text, buttons, images, videos."
+    centered={true}
+  />
+
+  <Buttons
+    primaryText="Learn more"
+    primaryLink="/about"
+    secondaryText="Contact us"
+    secondaryLink="/contact"
+    centered={true}
+  />
+
+
+  <VideoEmbed
+  src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  title="Never Gonna Give You Up"
+  thumbnail=""
+  aspectRatio="16:9"
+  autoplay={true}
+/>
+</OneCol>
+
+
+
+
+
+  <OneCol
+  bgClass="bg3">
+  <TextBlock
+    eyebrow="Welcome"
+    heading="This is a one-column layout"
+    text="You can add any content here — text, buttons, images, videos."
+    centered={true}
+  />
+
+  <Card
+  title="Grow a Food Forest"
+  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
+  image={image}
+  alt="Lush green food forest with layered planting"
+  link="/learn-more"
+  ctaText="Start Growing"
+  variant="basic"
+  badge="New"
+  tags={['Permaculture', 'Regenerative']}
+  icon=""
+  hoverEffect={false}
+  clickable={false}
+  aspectRatio="16/9"
+/>
+</OneCol>
+
+
+
+
+
+<TwoCol
+  bgClass="bg3"
+  col1Width="col-4"
+  col2Width="col-8"
+  reverseMobile={false}
+  reverseDesktop={false}
+  >
+  <div slot="left">
+    <TextBlock
+      eyebrow="You Have Questions"
+      heading="We have answers"
+      text="This layout now uses slots. That means full flexibility!"
+      centered={false}
+    />
+  
+    <Buttons
+      lineLink="/about"
+      lineText="More Info"
+      centered={false}
+    />
+  </div>
+  
+  <div slot="right">
+    <FaqAccordion {faqs} theme="light" />
+  </div>
+  </TwoCol>
+
+  
+<TwoCol
+bgClass="bg2"
+col1Width="col-6"
+col2Width="col-6"
+reverseMobile={false}
+reverseDesktop={false}
+>
+<div slot="left">
+  <TextBlock
+    eyebrow="Eyebrow here"
+    heading="Dynamic content layout"
+    text="This layout now uses slots. That means full flexibility!"
+    centered={false}
+  />
+
+  <Buttons
+    primaryText="Get Started"
+    primaryLink="/start"
+    secondaryText="More Info"
+    secondaryLink="/about"
+    centered={false}
+  />
+
+  <SocialProof />
+</div>
+
+<div slot="right">
+  <enhanced:img src={image} alt="Cool layout" loading="lazy" width="1000" height="400" />
+</div>
+</TwoCol>
+
+<TwoCol
+bgClass="bg1"
+col1Width="col-4"
+col2Width="col-8"
+reverseMobile={false}
+reverseDesktop={true}
+>
+<div slot="left">
+  <TextBlock
+    eyebrow="Eyebrow here"
+    heading="Dynamic content layout"
+    text="This layout now uses slots. That means full flexibility!"
+    centered={false}
+  />
+
+  <Buttons
+    primaryText="Get Started"
+    primaryLink="/start"
+    secondaryText="More Info"
+    secondaryLink="/about"
+    centered={false}
+  />
+</div>
+
+<div slot="right">
+  <VideoEmbed
+  src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  title="Never Gonna Give You Up"
+  thumbnail=""
+  aspectRatio="16:9"
+  autoplay={true}
+/>
+</div>
+</TwoCol>
+
+  
+  
+
+<CallToAction
+  headline="Ready to start your journey?"
+  text="Let’s build your future, one step at a time."
+  primaryButtonText="Sign Up"
+  primaryButtonLink="/contact"
+  secondaryButtonText="Learn More"
+  secondaryButtonLink="/about"
+  lineText="Maybe later"
+  lineLink="/"
+  bg="bg1"
+  useCard={true}
+  centered={true}
+/>
