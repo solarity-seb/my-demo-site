@@ -101,7 +101,21 @@
     centered={true}
   />
 
-  
+  <Card
+  title="Grow a Food Forest"
+  description="Learn how to grow your own resilient food system using permaculture principles and perennial crops."
+  image={image}
+  alt="Lush green food forest with layered planting"
+  link="/learn-more"
+  ctaText="Start Growing"
+  variant="basic"
+  badge="New"
+  tags={['Permaculture', 'Regenerative']}
+  icon=""
+  hoverEffect={false}
+  clickable={false}
+  aspectRatio="16/9"
+/>
 </OneCol>
 
 
