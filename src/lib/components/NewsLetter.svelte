@@ -50,17 +50,31 @@
   
     <form on:submit={handleSubmit}>
       {#if showNameField}
-        <label>
-          {nameLabel}
-          <input type="text" bind:value={name} name="name" />
-        </label>
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your Name"
+            bind:value={name}
+            required
+          />
+          <label for="name">{nameLabel}</label>
+        </div>
       {/if}
-  
-      <label>
-        {emailLabel}
-        <input type="email" bind:value={email} name="email" required />
-      </label>
-  
+    
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@example.com"
+          bind:value={email}
+          required
+        />
+        <label for="email">{emailLabel}</label>
+      </div>
+    
       <button type="submit" disabled={status === 'loading'}>
         {#if status === 'loading'}
           Sending...
@@ -68,21 +82,16 @@
           {buttonText}
         {/if}
       </button>
-  
+    
       {#if status === 'success' || status === 'error'}
         <p class={status}>{message}</p>
       {/if}
     </form>
+    
 </div>
 
   
   <style>
-  
-  form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
   
    
   

@@ -43,18 +43,19 @@
 <form on:submit|preventDefault={handleSubmit}>
 	<div class="form-group">
 		<input type="text" name="name" id="name" placeholder="Your Name" required />
-		<label for="name">Your Name</label>
+		<label for="name">Name</label>
 	  </div>
 	  
 
 	  <div class="form-group">
 		<input type="email" name="email" id="email" placeholder="email@example.com" required />
-		<label for="email">Your Email</label>
+		<label for="email">Email</label>
 	  </div>
 
-	<div>
+	  <div class="form-group">
+		
+		<textarea id="message" name="message" placeholder="Your Message" rows="5" bind:value={message} required></textarea>
 		<label for="message">Message</label>
-		<textarea id="message" name="message" rows="5" bind:value={message} required></textarea>
 	</div>
 
 	<button type="submit" disabled={loading}>

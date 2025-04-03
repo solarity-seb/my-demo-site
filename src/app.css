@@ -1070,7 +1070,7 @@ input, textarea {
   }
   
   input:focus::placeholder, textarea:focus::placeholder {
-	color: var(--text-color);
+	color: var(--grey-400);
   }
   
   /* Styles for the radio container */
