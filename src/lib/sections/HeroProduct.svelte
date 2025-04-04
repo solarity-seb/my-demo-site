@@ -5,7 +5,6 @@
     export let eyebrow = '';
     export let heading = '';
     export let text = '';
-    export let textColor = ''; // 'light' or 'dark'
 
 
     import { parallax } from '$lib/actions/parallax.js';
@@ -23,7 +22,7 @@ export let lineLink = '';
 export let badge = '';
 
 
-// import bg from '$lib/images/bg.jpg?enhanced';
+import bg from '$lib/images/bg.jpg?enhanced';
   </script>
   
   <section id="hero-section" class="hero-product bg1">
@@ -50,9 +49,9 @@ export let badge = '';
       />
     </div>
     <div class="grid-container full">
-      <!-- <div class="hero-image">
+      <div class="hero-image">
         <enhanced:img src={bg} alt="" />
-      </div> -->
+      </div>
     </div>
   </section>
   
@@ -67,10 +66,7 @@ export let badge = '';
 />
   
   <style>
-    .hero-image img {
-      border-radius: 20px;
-    }
-
+  
 
 
   </style>
