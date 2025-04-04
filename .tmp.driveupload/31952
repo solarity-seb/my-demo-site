@@ -198,7 +198,7 @@ reverseDesktop={true}
 
   <Buttons
     primaryText="Get Started"
-    primaryLink="/start"
+    primaryLink="/about"
     secondaryText="More Info"
     secondaryLink="/about"
     centered={false}
